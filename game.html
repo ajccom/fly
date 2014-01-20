@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FLY BATTLE</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-title" content="FLY BATTLE">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="format-detection" content="telephone=no" />
+	<script src="js/zepto-1.0.min.js"></script>
+	<script src="js/d1.js"></script>
+	<script src="js/game.js"></script>
+</head>
+<body>
+	<div class="loading">loading...<span></span></div>
+	<div class="body">
+		<canvas id="canvas"></canvas>
+		<div class="dom">
+			<div class="detail">
+				<div class="score">0</div>
+				<div class="pause"></div>
+			</div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+	</div>
+	<div class="hide"></div>
+	<style>
+	* {margin: 0; padding: 0}
+	html, body {height: 480px; width: 100%; font-size: 14px;}
+	body {background: #999}
+	.loading {height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 100; background: rgba(0, 0, 0, 0.8); color: #fff; text-align: center; line-height: 300px;}
+	.body {height: 100%; width: 100%; max-width: 320px; margin: 0 auto; position: relative; background: #89d}
+	.dom {height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 90;}
+	.dom .detail {margin: 15px 0 0 10px; color: #000; font-size: 20px; font-family: Georgia serif; position: relative; z-index: 5}
+	.dom .pause {position: absolute; top: 5px; right: 10px; width: 50px; height: 50px; background: url(img/pause.png) no-repeat -50px 0;}
+	.dom .pause.stop {background-position: 0 0;}
+	.dom .left {position: absolute; top: 0; left: 0; width: 50%; height: 100%; z-index: 2;}
+	.dom .right {position: absolute; top: 0; right: 0; width: 50%; height: 100%; z-index: 2;}
+	.hide {display: none}
+	</style>
+</body>
+</html>
