@@ -1,79 +1,44 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Fly : a sample game" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Fly</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ajccom/fly">View on GitHub</a>
-
-          <h1 id="project_title">Fly</h1>
-          <h2 id="project_tagline">a sample game</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ajccom/fly/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ajccom/fly/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Fly maintained by <a href="https://github.com/ajccom">ajccom</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FLY BATTLE</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-title" content="FLY BATTLE">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="format-detection" content="telephone=no" />
+	<script src="js/zepto-1.0.min.js"></script>
+	<script src="js/d1.js"></script>
+	<script src="js/game.js"></script>
+</head>
+<body>
+	<div class="loading">loading...<span></span></div>
+	<div class="body">
+		<canvas id="canvas"></canvas>
+		<div class="dom">
+			<div class="detail">
+				<div class="score">0</div>
+				<div class="pause"></div>
+			</div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+	</div>
+	<div class="hide"></div>
+	<style>
+	* {margin: 0; padding: 0}
+	html, body {height: 480px; width: 100%; font-size: 14px;}
+	body {background: #999}
+	.loading {height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 100; background: rgba(0, 0, 0, 0.8); color: #fff; text-align: center; line-height: 300px;}
+	.body {height: 100%; width: 100%; max-width: 320px; margin: 0 auto; position: relative; background: #89d}
+	.dom {height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 90;}
+	.dom .detail {margin: 15px 0 0 10px; color: #000; font-size: 20px; font-family: Georgia serif; position: relative; z-index: 5}
+	.dom .pause {position: absolute; top: 5px; right: 10px; width: 50px; height: 50px; background: url(img/pause.png) no-repeat -50px 0;}
+	.dom .pause.stop {background-position: 0 0;}
+	.dom .left {position: absolute; top: 0; left: 0; width: 50%; height: 100%; z-index: 2;}
+	.dom .right {position: absolute; top: 0; right: 0; width: 50%; height: 100%; z-index: 2;}
+	.hide {display: none}
+	</style>
+</body>
 </html>
